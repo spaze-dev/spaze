@@ -1,38 +1,34 @@
-# create-svelte
+# 🔗 SPAZE
 
-Everything you need to build a Svelte project, powered by [`create-svelte`](https://github.com/sveltejs/kit/tree/main/packages/create-svelte).
+An open source and minimalistic link sharing app.
+Built with SvelteKit, Prisma, Lucia, and Tailwind CSS.
 
-## Creating a project
+## 🚀 Getting Started
 
-If you're seeing this, you've probably already done this step. Congrats!
-
-```bash
-# create a new project in the current directory
-npm create svelte@latest
-
-# create a new project in my-app
-npm create svelte@latest my-app
-```
-
-## Developing
-
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
+#### 📦 Install dependencies
 
 ```bash
-npm run dev
-
-# or start the server and open the app in a new browser tab
-npm run dev -- --open
+pnpm install
 ```
 
-## Building
-
-To create a production version of your app:
+#### 💾 Database
 
 ```bash
-npm run build
+pnpm dlx prisma db push
 ```
 
-You can preview the production build with `npm run preview`.
+```bash
+pnpm dlx prisma generate
+```
 
-> To deploy your app, you may need to install an [adapter](https://kit.svelte.dev/docs/adapters) for your target environment.
+#### 🚀 Development
+
+```bash
+pnpm dev
+```
+
+Open [http://localhost:5173](http://localhost:5173) with your browser to see the result.
+
+## 📝 License
+
+SPAZE is licensed under the [MIT](LICENSE) License.
