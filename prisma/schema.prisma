@@ -7,12 +7,25 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
+model Link {
+  id          String   @id @default(cuid())
+  user_id     String
+  url         String
+  title       String
+  description String?
+  auth_user   AuthUser @relation(fields: [user_id], references: [id])
+
+  @@index([user_id])
+  @@map("link")
+}
+
 model AuthUser {
   id           String        @id @unique
   name         String
   username     String        @unique
   auth_session AuthSession[]
   auth_key     AuthKey[]
+  links        Link[]
 
   @@map("auth_user")
 }
