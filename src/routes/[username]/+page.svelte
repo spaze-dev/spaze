@@ -1,5 +1,6 @@
 <script lang="ts">
   import type { PageData } from "./$types";
+  import SvelteSeo from "svelte-seo";
   export let data: PageData;
 </script>
 
