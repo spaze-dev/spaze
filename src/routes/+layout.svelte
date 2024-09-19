@@ -8,7 +8,7 @@
 	export let data: PageData
 </script>
 
-<div class="layout max-w-6xl">
+<div class="layout max-w-6xl mx-auto">
 	<Header />
 	<main>
 		<slot />

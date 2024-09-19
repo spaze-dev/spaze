@@ -12,6 +12,9 @@ export const load: PageServerLoad = async ({ params, locals }) => {
     const user = await prisma.authUser.findUnique({
       where: {
         username: String(params.username)
+      },
+      include: {
+        links: true
       }
     })
     if (!user) {
