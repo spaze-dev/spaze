@@ -1,6 +1,7 @@
 import { error, fail, redirect } from "@sveltejs/kit";
 import type { Actions, PageServerLoad } from "./$types";
 import { prisma } from "$lib/server/prisma";
+import { isUserNameValid } from "$lib";
 
 export const load: PageServerLoad = async ({ locals }) => {
   const session = await locals.auth.validate()
@@ -40,6 +41,10 @@ export const actions: Actions = {
       string,
       string
     >
+
+    if (!isUserNameValid(username)) {
+      return fail(400, { message: 'Invalid username' })
+    }
 
     try {
       await prisma.authUser.update({

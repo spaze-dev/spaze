@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { enhance } from "$app/forms"
   import type { PageData } from "./$types";
   export let data: PageData;
 
@@ -7,9 +8,10 @@
 
 <main class="grid h-full grid-cols-1 lg:grid-cols-2 px-10 gap-8">
   <div class="card bg-base-100 gap-2">
-    <form action="?/updateProfile" method="POST" class="flex flex-col gap-4">
-      <hgroup>
+    <form action="?/updateProfile" method="POST" class="flex flex-col gap-4" use:enhance>
+      <hgroup class="flex justify-between">
         <h2 class="text-2xl font-semibold">Profile</h2>
+        <button type="submit" class="btn btn-outline btn-sm" formaction="/logout">Logout</button>
       </hgroup>
 
       <label class="input input-bordered flex items-center">
@@ -42,7 +44,7 @@
                 </p>
               {/if}
             </div>
-            <form action="?/deleteLink" method="POST">
+            <form action="?/deleteLink" method="POST" use:enhance>
               <!-- svelte-ignore a11y_consider_explicit_label -->
               <button type="submit" class="btn btn-sm btn-circle btn-ghost">
                 <iconify-icon icon="fa-trash" class="text-sm"></iconify-icon>
@@ -69,7 +71,7 @@
       Add a link to share with the world.
     </p>
     <div class="modal-action">
-      <form action="?/addLink" method="POST" class="gap-4 flex flex-col w-full">
+      <form action="?/addLink" method="POST" class="gap-4 flex flex-col w-full" use:enhance>
         <input type="text" name="url" id="url" placeholder="URL" class="input input-bordered w-full" required />
         <input type="text" name="title" id="title" placeholder="Title" class="input input-bordered w-full" required />
         <input type="text" name="description" id="description" placeholder="Description" class="input input-bordered w-full" />

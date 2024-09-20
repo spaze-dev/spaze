@@ -1,6 +1,11 @@
+<script>
+
+	import { enhance } from "$app/forms"
+
+</script>
 <main class="grid place-content-center h-full">
   <div class="card bg-base-100 gap-2">
-    <form method="POST" class="flex flex-col gap-4">
+    <form method="POST" class="flex flex-col gap-4" use:enhance>
       <hgroup>
         <h2 class="text-2xl font-semibold">Login</h2>
         <h3 class="opacity-75">Welcome back!</h3>
